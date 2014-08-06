@@ -4,4 +4,8 @@ class TurnsController < ApplicationController
     @turns = Turn.all
   end
 
+  def new
+
+  end
+
 end

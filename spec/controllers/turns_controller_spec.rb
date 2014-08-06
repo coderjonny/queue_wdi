@@ -26,4 +26,13 @@ RSpec.describe TurnsController, :type => :controller do
       expect(assigns(:office_hours_helpers)).to eq('alfonso')
     end
   end
+
+  describe "creating a #new turn" do
+    before(:each) do
+      get :new
+    end
+
+    it { should respond_with(:success) }
+    it { should render_template(:new) }
+  end
 end

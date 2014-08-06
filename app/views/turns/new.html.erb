@@ -6,11 +6,11 @@
       </h2>
       <hr>
 
-      <%= form_for @turn, url: {action: "create"}, html: {class: "form"} do |f| %>
-        <%= f.text_field :name, placeholder: 'Your name' %>
-        <%= f.text_field :subject, placeholder: 'subject' %>
-        <%= f.text_area :question , size: "60x12", placeholder: 'Question?' %>
-        <%= f.submit "Add me to the queue!", class: "btn btn-primary btn-large" %>
+      <%= form_for @turn do |f| %>
+        <%= f.text_field :name, size: '40', placeholder: "Name" %>
+        <%= f.text_field :subject, size: '40', placeholder: "Subject" %>
+        <%= f.text_field :question, size: '42x12' placeholder: "Question" %>
+        <%= f.submit "Add me to the queue!", class: 'btn btn-primary btn-large' %>
       <% end %>
 
     </div>

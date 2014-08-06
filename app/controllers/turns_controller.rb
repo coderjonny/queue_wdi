@@ -5,6 +5,11 @@ class TurnsController < ApplicationController
     name_instructor
   end
 
+  def admin
+    @turns = Turn.all
+    name_instructor
+  end
+
   def name_instructor
     teachers = [
       "Richard, Mel and Andrew",
@@ -29,13 +34,36 @@ class TurnsController < ApplicationController
     @turn = Turn.new
   end
 
+  def show
+    @turn = Turn.find(params[:id]) 
+  end
+
   def create
-    @turn = Turn.create(params.require(:turn).permit(:name, :subject, :question))
+    @turn = Turn.new(params.require(:turn).permit(:name, :subject, :question))
     if @turn.save
       redirect_to turns_path
     else
       render 'new'
     end
+  end
+
+  def edit
+    @turn = Turn.find(params[:id])
+  end
+
+  def update
+    @turn = Turn.find(params[:id])
+    if @turn.update_attributes(params.require(:turn).permit(:name, :subject, :question))
+      redirect_to turns_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @turn = Turn.find(params[:id])
+    @turn.destroy
+    redirect_to turns_path
   end
 
 end

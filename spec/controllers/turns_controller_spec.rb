@@ -27,12 +27,38 @@ RSpec.describe TurnsController, :type => :controller do
     end
   end
 
-  describe "creating a #new turn" do
+  describe "#new turn" do
     before(:each) do
       get :new
     end
 
     it { should respond_with(:success) }
     it { should render_template(:new) }
+
+  end
+
+  describe "#create a turn" do
+      let :valid_attributes do
+        {
+          name: 'jonny',
+          subject: 'supasdf',
+          question: 'supasdf'
+        }
+      end
+    before do
+    end
+
+    it { should permit( :name,
+                        :subject,
+                        :question
+                        ).for( :create )}
+
+    it "should be add an instagram account for the user" do
+      @turn = Turn.create(valid_attributes)
+      post :create, turn: valid_attributes
+      expect(Turn.last.name).to eq(@turn.name)
+    end
+    
+
   end
 end

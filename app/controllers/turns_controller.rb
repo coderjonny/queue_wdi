@@ -2,6 +2,7 @@ class TurnsController < ApplicationController
 
   def index
     @turns = Turn.all
+    @features = Feature.all
     name_instructor
   end
 
@@ -20,7 +21,7 @@ class TurnsController < ApplicationController
     t = Time.now.strftime("%A")
     case t
     when "Monday"
-      @office_hours_helpers = "#{teachers[0]}!" 
+      @office_hours_helpers = "#{teachers[0]}!"
     when "Tuesday"
       @office_hours_helpers = "#{teachers[1]}!"
     when "Wednesday"
@@ -35,7 +36,7 @@ class TurnsController < ApplicationController
   end
 
   def show
-    @turn = Turn.find(params[:id]) 
+    @turn = Turn.find(params[:id])
   end
 
   def create

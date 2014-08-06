@@ -4,6 +4,8 @@ QueueWdi::Application.routes.draw do
 
   resources :turns
 
+  get "admin-secret" => "turns#admin"
+
   # You can have the root of your site routed with "root"
    root 'turns#index'
 

@@ -5,7 +5,12 @@
         Please wait your turn and add yourself to the queue
       </h2>
       <hr>
-      <%= link_to 'Add me to the queue!', new_turn_path, class: 'btn btn-primary btn-large' %>
+      <%= form_for @turn do |f| %>
+        <%= f.text_field :name, placeholder: "Name" %>
+        <%= f.text_field :subject, placeholder: "Subject" %>
+        <%= f.text_field :question, placeholder: "Question" %>
+        <%= f.submit "Add me to the queue!", class: 'btn btn-primary btn-large' %>
+      <% end %>
     </div>
 
 </div>

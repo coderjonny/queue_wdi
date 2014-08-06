@@ -6,15 +6,15 @@
       <h2>
         Queue for office hours! <%= Time.now.strftime("%A") %> <%= Date.today %>
       </h2>
-      Your Instructors and TAs tonight are:<br>
-      <strong><%= @office_hours_helpers %></strong>
+      Your Instructors and TAs tonight are:
+      <%= @office_hours_helpers %>
       <hr>
       <ul class="list-group">
 
         <% @turns.each do |t| %>
 
           <li class="list-group-item">
-            <%= link_to "edit", edit_turn_path(t), class: "btn btn-primary pull-right"%>
+            <%= link_to "X", turn_path(t.id), method: :delete, class: "btn btn-primary pull-right"%>
             <h4 class="list-group-item-heading"><%= t.name %></h4>
             <p class="list-group-item-text">Subject: <%= t.subject %></p>
             <p class="list-group-item-text">Question: <%= t.question %></p>

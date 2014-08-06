@@ -24,4 +24,10 @@ class TurnsController < ApplicationController
       @office_hours_helpers = "#{teachers[3]}!"
     end
   end
+
+  def new
+
+  end
+
+
 end

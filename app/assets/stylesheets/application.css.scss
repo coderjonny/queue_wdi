@@ -12,4 +12,17 @@
  *= require_tree .
  */
 
-@import 'bootstrap'
+@import 'bootstrap';
+
+body {
+  background: pink;
+
+  .btn {
+    height: 50px;
+    line-height: 50px;
+
+    &:hover {
+      text-shadow: 5px 5px 5px black;
+    }
+  }
+}

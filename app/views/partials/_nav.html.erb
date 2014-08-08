@@ -34,18 +34,36 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
 
+
+      <% if current_user %>
+
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          User <span class="caret"></span>
+          Hi, <%= current_user.name %>
+          <span class="caret"></span>
         </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li>
+              <%= link_to 'Log me out', sessions_path, method: :delete %>
+            </li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="https://github.com/coderjonny/queue_wdi">Fork and make pull request! :)</a></li>
           </ul>
         </li>
+
+      <% else %>
+
+        <li>
+          <%= link_to "sign up", new_user_path, class: 'btn btn-default ' %>
+        </li>
+
+        <li>
+          <%= link_to 'Log in', new_sessions_path, class: 'btn btn-default ' %>	
+        </li>
+
+      <% end %>
+        
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

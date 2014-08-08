@@ -21,10 +21,6 @@ RSpec.describe TurnsController, :type => :controller do
       expect(assigns(:turns)).to match_array([turn1, turn2])
     end
 
-    xit "should able to show the correct instructors and TAs for the day" do
-      get :index
-      expect(assigns(:office_hours_helpers)).to eq('alfonso')
-    end
   end
 
   describe "#new turn" do

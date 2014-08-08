@@ -1,10 +1,13 @@
 QueueWdi::Application.routes.draw do
+  resources :users
   resources :features
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   resources :turns
+
+  resource :sessions, only: [:new, :create, :destroy]
 
   get "admin-secret" => "turns#admin"
 

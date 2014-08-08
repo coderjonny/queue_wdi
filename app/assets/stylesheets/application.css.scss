@@ -32,6 +32,9 @@ body {
 .list-group-item-text {
   word-break: break-word;
 }
+.list-group-item:hover {
+  background-color: rgba(211,211,211,.9);
+}
 
 // END CSS
 

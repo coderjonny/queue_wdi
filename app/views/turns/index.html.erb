@@ -14,12 +14,7 @@
         <% @turns.each do |t| %>
 
           <li class="list-group-item">
-            <h4 class="list-group-item-heading">
-              <% if t.user %>
-                <%= t.user.name %></h4>
-              <% else %>
-                <%= t.name %>
-              <% end %>
+            <h4 class="list-group-item-heading"><%= t.user.name %></h4>
             <p class="list-group-item-text">Subject: <%= t.subject %></p>
             <p class="list-group-item-text">Question: <%= t.question %></p>
           </li>

@@ -9,13 +9,20 @@
       Your Instructors and TAs tonight are:
       <%= @office_hours_helpers %>
       <hr>
+
+      Delete off a turn once their complete
+
       <ul class="list-group">
 
         <% @turns.each do |t| %>
 
           <li class="list-group-item">
-            <%= link_to "X", turn_path(t.id), method: :delete, class: "btn btn-primary pull-right"%>
-            <h4 class="list-group-item-heading"><%= t.name %></h4>
+            <% if current_user.is_admin %>
+              <%= link_to "X", turn_path(t.id), method: :delete, class: "btn btn-primary pull-right"%>
+            <% else %>
+              <%= link_to "you have to be an admin to delete", turn_path(t.id), method: :delete, class: "btn btn-primary pull-right", disabled: true %>
+            <% end %>
+            <h4 class="list-group-item-heading"><%= t.user.name %></h4>
             <p class="list-group-item-text">Subject: <%= t.subject %></p>
             <p class="list-group-item-text">Question: <%= t.question %></p>
           </li>

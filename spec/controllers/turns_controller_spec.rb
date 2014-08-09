@@ -34,25 +34,33 @@ RSpec.describe TurnsController, :type => :controller do
   end
 
   describe "#create a turn" do
-      let :valid_attributes do
-        {
-          name: 'jonny',
-          subject: 'supasdf',
-          question: 'supasdf'
-        }
-      end
     before do
+      @user = User.create!(name: "jonny", email: "jono.kang@gmail.com",
+                           github_handle: "coderjonny", password: 'asdfasdf',
+                           password_confirmation: 'asdfasdf')
+    end
+    let :valid_attributes do
+      {
+        name: @user.name,
+        subject: 'supasdf',
+        question: 'supasdf',
+        user_id: @user.id
+      }
     end
 
     it { should permit( :name,
                         :subject,
-                        :question
+                        :question,
+                        :user_id
                         ).for( :create )}
 
-    it "should be add an instagram account for the user" do
+    it "should be add a turn for the user" do
       @turn = Turn.create(valid_attributes)
+
       post :create, turn: valid_attributes
+
       expect(Turn.last.name).to eq(@turn.name)
+      expect(Turn.last.user_id).to eq(@user.id)
     end
     
 

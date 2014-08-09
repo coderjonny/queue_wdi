@@ -35,6 +35,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'mongoid-rspec'
 end
 
 gem 'rails_12factor'

@@ -12,5 +12,5 @@ class User
   validates :email, presence: true
   validates :github_handle, presence: true
 
-  has_many :posts
+  has_many :turns
 end

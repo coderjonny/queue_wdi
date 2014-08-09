@@ -11,5 +11,7 @@ RSpec.describe Turn, :type => :model do
 
       expect(queue.last).to eq(turn)
     end
+
+    it { should belong_to(:user) }
   end
 end

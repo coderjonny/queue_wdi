@@ -40,7 +40,9 @@ class TurnsController < ApplicationController
   end
 
   def create
-    @turn = Turn.new(params.require(:turn).permit(:name, :subject, :question))
+    @turn = Turn.new(params.require(:turn).permit(:name, :subject, :question, :user_id))
+    @turn.user_id = current_user.id
+    @turn.name = current_user.name
     if @turn.save
       redirect_to turns_path
     else

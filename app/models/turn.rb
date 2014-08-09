@@ -4,5 +4,6 @@ class Turn
   field :subject, type: String
   field :question, type: String
 
-  validates :name, presence: true
+  belongs_to :user
 end
+

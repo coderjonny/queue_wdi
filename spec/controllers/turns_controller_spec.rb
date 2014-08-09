@@ -15,7 +15,7 @@ RSpec.describe TurnsController, :type => :controller do
 
     it "loads all of the turns into @turns" do
       Turn.destroy_all
-      turn1, turn2 = Turn.create!(name: 'Kaitlin'), Turn.create!(name: 'jonny')
+      turn1, turn2 = Turn.create!, Turn.create!
 
       get :index
       expect(assigns(:turns)).to match_array([turn1, turn2])
@@ -34,32 +34,31 @@ RSpec.describe TurnsController, :type => :controller do
   end
 
   describe "#create a turn" do
-    before do
-      @user = User.create!(name: "jonny", email: "jono.kang@gmail.com",
+    before :each do
+      @user = User.create!(name: 'jonny', email: "jono.kang@gmail.com",
                            github_handle: "coderjonny", password: 'asdfasdf',
                            password_confirmation: 'asdfasdf')
     end
+
     let :valid_attributes do
       {
-        name: @user.name,
         subject: 'supasdf',
         question: 'supasdf',
         user_id: @user.id
       }
     end
 
-    it { should permit( :name,
-                        :subject,
+    it { should permit( :subject,
                         :question,
                         :user_id
                         ).for( :create )}
 
     it "should be add a turn for the user" do
-      @turn = Turn.create(valid_attributes)
+      @turn = Turn.new(valid_attributes)
 
       post :create, turn: valid_attributes
 
-      expect(Turn.last.name).to eq(@turn.name)
+      expect(Turn.last.user.name).to eq(@turn.user.name)
       expect(Turn.last.user_id).to eq(@user.id)
     end
     

@@ -4,7 +4,9 @@
         WDI Office Hours
       </h1>
       <h2>
-        Queue for office hours! <%= Time.now.strftime("%A") %> <%= Date.today %>
+        Queue for office hours!
+        <br>
+        <%= Time.now.strftime("%A") %>, <%= Date.today %>
       </h2>
       Your Instructors and TAs tonight are:<br>
       <strong><%= @office_hours_helpers %></strong>

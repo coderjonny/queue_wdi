@@ -1,7 +1,22 @@
-<h1>Log my ass in</h1>
+<div class="row" >
 
-<%= form_for @user, {url: sessions_path} do |f| %>
-	<%= f.text_field :email, placeholder: "your super secret email address..  we will be spamming.." %>
-	<%= f.password_field :password, placeholder: "password ..." %>
-	<%= f.submit 'Log me in', class: 'btn btn-primary' %>
-<% end %>
+  <div class="col-sm-4 col-sm-offset-4" >
+    <h1>Log in</h1>
+
+    <%= form_for @user, {url: sessions_path} do |f| %>
+      <div class="form-group">
+        <%= f.text_field :email, placeholder: "your email address..",
+          class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, placeholder: "password ...",
+          class: 'form-control'  %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Log me in', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

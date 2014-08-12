@@ -30,7 +30,12 @@
       <hr>
 
       <% if current_user %>
-        <%= link_to 'Add me to the queue!', new_turn_path, class: 'btn btn-primary btn-large btn-success' %>
+
+        <button class="btn btn-primary btn-success" data-toggle="modal" data-target="#myModal">
+          Add me to the Queue!
+        </button>
+
+
       <% else %>
         <%= link_to 'Log in to be added to the queue!', new_turn_path, class: 'btn btn-primary btn-large btn-success', disabled: true %>
       <% end %>
@@ -59,6 +64,8 @@
         <% end %>
 
       </ul>
+
+      <%= render 'new_modal' %>
 
     </div>
 

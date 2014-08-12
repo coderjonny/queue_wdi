@@ -1,6 +1,7 @@
 class TurnsController < ApplicationController
 
   def index
+    @turn = Turn.new
     @turns = Turn.all
     @features = Feature.all
     name_instructor

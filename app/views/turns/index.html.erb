@@ -16,6 +16,9 @@
         <% @turns.each do |t| %>
 
           <li class="list-group-item">
+            <% if t.user.id == current_user.id %>
+              <%= link_to "Solved", turn_path(t.id), method: :delete, class: "btn btn-primary pull-right"%>
+            <% end %>
             <h4 class="list-group-item-heading"><%= t.user.name %></h4>
             <p class="list-group-item-text">Subject: <%= t.subject %></p>
             <p class="list-group-item-text">Question: <%= t.question %></p>

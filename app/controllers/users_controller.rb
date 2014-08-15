@@ -8,8 +8,11 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      redirect_to new_user_path
+      render 'new'
     end
   end
-  
+
+  def index
+    @users = User.all
+  end
 end

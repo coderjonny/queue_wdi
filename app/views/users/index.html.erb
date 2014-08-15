@@ -1,0 +1,27 @@
+
+<table class="table table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>github</th>
+          <th>admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+
+              <tr>
+                <td>
+                  <%= user.name %>
+                </td>
+                <td>
+                  <%= user.github_handle %>
+                </td>
+                <td>
+                  <%= user.is_admin %>
+                </td>
+              </tr>
+
+        <% end %>
+      </tbody>
+    </table>

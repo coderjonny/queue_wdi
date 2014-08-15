@@ -29,6 +29,8 @@ class TurnsController < ApplicationController
       @office_hours_helpers = "#{teachers[2]}!"
     when "Thursday"
       @office_hours_helpers = "#{teachers[3]}!"
+    when "Friday"
+      @office_hours_helpers = "It's Friday!"
     end
   end
 
